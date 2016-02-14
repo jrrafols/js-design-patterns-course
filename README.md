@@ -1,2 +1,4 @@
 # js-design-patterns-course
-Code for Udacity - Javascript Design Patterns
+Repo for code used in the Javascript Design Patterns course on Udacity
+
+https://www.udacity.com/courses/ud989
