@@ -18,6 +18,6 @@ var Clicker = function(selector, name){
 };
 
 (function(){
-    var c1 = new Clicker('#ClickDiv1', "Lucky 1");
-    var c2 = new Clicker('#ClickDiv2', "Lucky 2");
+    new Clicker('#ClickDiv1', "Lucky 1");
+    new Clicker('#ClickDiv2', "Lucky 2");
 })()
