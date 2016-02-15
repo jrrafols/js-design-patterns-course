@@ -1,23 +1,60 @@
-var Clicker = function(selector, name){
+
+
+var Clicker = function(options){
     var numClicks = 0;
     
-    var divLoc = document.querySelector(selector);
-    console.log(divLoc);
+    var container = document.createElement('div');
     
-    var image = divLoc.querySelector('.target-img');
-    var count = divLoc.querySelector(".clicks");
-    var heading = divLoc.querySelector(".name-header");
+    var heading = document.createElement('h3');
+    heading.textContent = options.name;
     
-    heading.textContent = name;
+    var image = document.createElement('img');
+    image.src = options.src;
+    image.width = 300;
+    image.alt = options.name;
+    
+    var clickCount = document.createElement('p');
+    clickCount.innerHTML = "The image has been clicked <span class=\"clicks\">0</span> times."
+    
+    container.appendChild(heading);
+    container.appendChild(image);
+    container.appendChild(clickCount);
+    
+    document.querySelector('body').appendChild(container);
+    
+    var count = clickCount.querySelector('.clicks');
     
     image.addEventListener('click', function(){
         numClicks += 1;
         count.textContent = numClicks.toString();
     }, false);
-    
 };
 
 (function(){
-    new Clicker('#ClickDiv1', "Lucky 1");
-    new Clicker('#ClickDiv2', "Lucky 2");
+    var data = [
+        {
+            name: "Lucky1",
+            src: "./img/lucky-1.jpg"
+        },
+        {
+            name: "Lucky2",
+            src: "./img/lucky-2.jpg"
+        },
+        {
+            name: "Lucky3",
+            src: "./img/lucky-3.jpg"
+        },
+        {
+            name: "Jack",
+            src: "./img/jack.jpg"
+        },
+        {
+            name: "Lucky5",
+            src: "./img/lucky-5.jpg"
+        },
+    ]
+    
+    data.forEach(function(item){
+        new Clicker(item); 
+    });
 })()
